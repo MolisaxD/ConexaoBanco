@@ -5,6 +5,7 @@
  */
 package conexaobanco;
 
+import classes.Pessoa;
 import dao.DBConnection;
 
 /**
@@ -20,5 +21,8 @@ public class ConexaoBanco {
         // TODO code application logic here
         DBConnection con = new DBConnection();
         con.getConnection();
+        
+        Pessoa pessoa = new Pessoa("Criatura", 24, "166");
+        con.create(pessoa);
     }
 }
