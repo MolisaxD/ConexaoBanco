@@ -7,6 +7,8 @@ package conexaobanco;
 
 import classes.Pessoa;
 import dao.DBConnection;
+import java.util.ArrayList;
+import telas.TelaListagem;
 
 /**
  *
@@ -19,10 +21,25 @@ public class ConexaoBanco {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        DBConnection con = new DBConnection();
-        con.getConnection();
         
-        Pessoa pessoa = new Pessoa("Criatura", 24, "166");
-        con.create(pessoa);
+        TelaListagem telaInicial = new TelaListagem();
+        telaInicial.setVisible(true);
+        
+        DBConnection db = new DBConnection();
+        
+        //Pessoa pessoa = new Pessoa("El Wiwi", 15, "168");
+        //db.create(pessoa);
+        
+        //db.update(pessoa, 4);
+        
+        //db.delete(4);
+        
+        
+        ArrayList<Pessoa> pessoasCadastradas = new ArrayList();
+        pessoasCadastradas = db.readAll();
+        
+        for(int i = 0; i < pessoasCadastradas.size(); i++) {
+            System.out.println(pessoasCadastradas.get(i).mostrarDados());
+        }
     }
 }
