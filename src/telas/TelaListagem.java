@@ -24,9 +24,6 @@ public class TelaListagem extends javax.swing.JFrame {
     public TelaListagem() {
         initComponents();
         listarPessoas();
-        if(getListaPessoas().size() < 1) {
-            btAlterar.setVisible(false);
-        }
     }
 
     public void listarPessoas() {
@@ -125,6 +122,7 @@ public class TelaListagem extends javax.swing.JFrame {
         TelaCadastro telaCadastro = new TelaCadastro(this);
         telaCadastro.setVisible(true);
         setVisible(false);
+        btAlterar.setVisible(true);
     }//GEN-LAST:event_btCadastroActionPerformed
 
     private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
